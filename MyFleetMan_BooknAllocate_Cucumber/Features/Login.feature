@@ -2,17 +2,17 @@ Feature: Login features
 
 	This is login for MyFleetman application and User is successfully logged in on insertion of valid username and password
   
-#	@Sanity 
-#	Scenario: Successful Login with Valid Credentials 
-#		Given User Launch Chrome browser 
-#		When User opens URL "https://apps.kairee.in/MFMUAT/Administration/WebPages/frmLogin.aspx" 
-#		And Window is closed 
-#		And User enters Email as "Kairee" and Password as "2020 Fleet@#" 
-#		And Click on Login 
-#		Then Page Title should be "Dashboard" 
-#		#	When User click on Log out link   
-#		#	Then Page Title should be "Your store. Login" 
-#		And close browser
+#@Sanity 
+#Scenario: Successful Login with Valid Credentials 
+#	Given User Launch Chrome browser 
+#	When User opens URL "https://apps.kairee.in/MFMUAT/Administration/WebPages/frmLogin.aspx" 
+#	And Window is closed 
+#	And User enters Email as "Kairee" and Password as "2020 Fleet@#" 
+#	And Click on Login 
+#	Then Page Title should be "Dashboard" 
+#	#	When User click on Log out link   
+#	#	Then Page Title should be "Your store. Login" 
+#	And close browser
 		
 @Functional 
 Scenario: Enter Booking Details 
@@ -43,11 +43,11 @@ Scenario: Enter Booking Details
 	Then Click on pop-up 
 	And Redirect Back to Allocation page 
 	Then Check for Vehicle will be allocated for "Self" 
-	Then Choose Vehicle number as "MH-12-CB-2644 ( SWIFT DEZIRE )" 
-	Then Enter Driver Prefix as "sa" and choose required driver "SABER S" 
+	Then Choose Vehicle number as "MH-12-SA-4000" 
+	Then Enter Driver Prefix as "sa" and choose required driver "Sam" 
 	And click on Submit Allocation 
 	Then Click on Pop-Up after Allocation done 
-	Then Verify wheather Booking has done or not and Capture booking Id as "NK210130001" 
+	Then Verify wheather Booking has done or not and Capture booking Id as "NK210201005" 
 	
 	#	Then Redirect to logout 
 	#	When User click on Logout link 

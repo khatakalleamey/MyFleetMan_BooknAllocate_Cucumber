@@ -263,10 +263,15 @@ public class StepDef extends BaseClass {
 	@Then("Verify wheather Booking has done or not and Capture booking Id as {string}")
 	public void verify_wheather_Booking_has_done_or_not_and_Capture_booking_Id_as(String bookID)
 			throws InterruptedException {
+
 		Thread.sleep(5000);
 		boolean CheckBookindDonestatus = bd.VerifBookingDone(bookID);
-		Assert.assertEquals(true, CheckBookindDonestatus);
-
+		if (CheckBookindDonestatus == true) {
+			logger.info(" Test Done and TestResult is Pass");
+			Assert.assertEquals(true, CheckBookindDonestatus);
+		} else {
+			logger.info("Test Done and TestResult is Fail");
+		}
 	}
 
 	/*
@@ -275,11 +280,8 @@ public class StepDef extends BaseClass {
 	 * 
 	 * @When("User click on Logout link") public void user_click_on_Logout_link()
 	 * throws InterruptedException { bd.Clickonlogout(); Thread.sleep(5000); }
-	 */
-
-	/*
+	 * 
 	 * @Then("close browser") public void close_browser() { driver.quit();
 	 * Log.info("********** browser Closed *********"); }
 	 */
-
 }

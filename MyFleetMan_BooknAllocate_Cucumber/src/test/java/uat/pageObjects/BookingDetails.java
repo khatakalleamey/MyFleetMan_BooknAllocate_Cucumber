@@ -12,6 +12,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.sun.tools.internal.xjc.Driver;
+
+import ReqLogic.BookingNeccasaryLogic;
+
 public class BookingDetails {
 
 	WebDriver bdr;
@@ -178,7 +182,8 @@ public class BookingDetails {
 	WebElement btnsubmitA;
 
 	// path for checking booking
-	@FindBy(xpath = "//tr/td/a[@id='lbTransactionID']")
+
+	@FindBy(xpath = "//table/tbody[1]/tr/td[5]/a[@id='lbTransactionID' and @title='GO TO DUTY SLIP']")
 	@CacheLookup
 	List<WebElement> CheckForBooking;
 
@@ -187,6 +192,9 @@ public class BookingDetails {
 	@FindBy(xpath = "//a[@id='ctl00_lnkdashboard']")
 	@CacheLookup
 	WebElement btnRdashB;
+
+	// path for verification and validations
+
 	// Methods-Booking
 
 	public void clickDropDown1() {
@@ -455,22 +463,32 @@ public class BookingDetails {
 		}
 	}
 
+	public void ClickReturnDashboard() {
+		btnRdashB.click();
+	}
+
 	public boolean VerifBookingDone(String bookID) {
+		BookingNeccasaryLogic bnlogic = new BookingNeccasaryLogic();
+
 		boolean bookstatus = false;
+		int row = CheckForBooking.size();
+		System.out.println(row);
 		List<String> bookingIdList = CheckForBooking.stream().map(bookiId -> bookiId.getText())
 				.collect(Collectors.toList());
-		String s = bookingIdList.toString();
+
+//		System.out.println(bookingIdList.get(4).toString());
+		String valueforVerifi = bnlogic.BookingValidationLogic();
+		System.out.println("The Value taken for verification is " + valueforVerifi);
+
 		for (Object bookFind : bookingIdList) {
 
-			if (bookFind.toString() == bookID) {
+			if (bookFind.toString() == valueforVerifi) {
 				bookstatus = true;
+
 			}
 		}
 
 		return bookstatus;
 	}
 
-	public void ClickReturnDashboard() {
-		btnRdashB.click();
-	}
 }

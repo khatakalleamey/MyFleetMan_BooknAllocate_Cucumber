@@ -107,3 +107,15 @@
 2021-01-30 10:57:52,256  INFO [main] MFMUAT:82 -  Username Entered 
 2021-01-30 10:57:55,371  INFO [main] MFMUAT:85 -  Password Entered 
 2021-01-30 10:58:03,456  INFO [main] MFMUAT:93 -  User logged in Seccessfully 
+2021-02-01 16:50:55,700  INFO [main] MFMUAT:60 - ************* Launching Browser *****************
+2021-02-01 16:50:55,884  INFO [main] MFMUAT:66 - ************* Opening URL  *****************
+2021-02-01 16:51:25,533  INFO [main] MFMUAT:73 - *********** Window Closed ************
+2021-02-01 16:51:33,992  INFO [main] MFMUAT:82 -  Username Entered 
+2021-02-01 16:51:37,103  INFO [main] MFMUAT:85 -  Password Entered 
+2021-02-01 16:51:45,184  INFO [main] MFMUAT:93 -  User logged in Seccessfully 
+2021-02-01 16:59:10,655  INFO [main] MFMUAT:60 - ************* Launching Browser *****************
+2021-02-01 16:59:10,690  INFO [main] MFMUAT:66 - ************* Opening URL  *****************
+2021-02-01 16:59:21,887  INFO [main] MFMUAT:73 - *********** Window Closed ************
+2021-02-01 16:59:30,080  INFO [main] MFMUAT:82 -  Username Entered 
+2021-02-01 16:59:33,198  INFO [main] MFMUAT:85 -  Password Entered 
+2021-02-01 16:59:41,300  INFO [main] MFMUAT:93 -  User logged in Seccessfully 
