@@ -59,13 +59,16 @@ public class StepDef extends BaseClass {
 	public void user_Launch_Chrome_browser() {
 		logger.info("************* Launching Browser *****************");
 		lp = new LoginPage(driver);
+		
 	}
 
 	@When("User opens URL {string}")
 	public void user_opens_URL(String url) {
 		logger.info("************* Opening URL  *****************");
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.get(url);
+		
 	}
 
 	@When("Window is closed")
@@ -224,10 +227,11 @@ public class StepDef extends BaseClass {
 		}
 	}
 
-	@Then("Check for Vehicle will be allocated for {string}")
-	public void check_for_Vehicle_will_be_allocated_for_or(String AllocationType) throws InterruptedException {
+	@Then("Check for Vehicle will be allocated for {string} or {string}")
+	public void check_for_Vehicle_will_be_allocated_for_or(String AllocationType, String AllocationTypeV)
+			throws InterruptedException {
 		Thread.sleep(3000);
-		bd.setChooseAllcationType(AllocationType);
+		bd.setChooseAllcationType(AllocationType, AllocationTypeV, driver);
 	}
 
 	@Then("Choose Vehicle number as {string}")

@@ -7,26 +7,24 @@ public class BookingNeccasaryLogic {
 	public int initial = 1;
 	public WebDriver dr;
 
-	public String BookingValidationLogic() {
-
-		String S1 = "NK210201005";
+	public String BookingValidationLogic(String bookID) {
+//Available Last bookiongId
+		String S1 = bookID;
 		String newString = S1.substring(2);
-		System.out.println(newString.getClass());
 		String firstS = S1.substring(0, 2);
-		System.out.println(firstS);
-
+//Conversion into int
 		int Cvalue = Integer.parseInt(newString);
-		System.out.println(Cvalue);
+		// int initial = 1;
 		int Rvalue = Math.addExact(Cvalue, initial);
-		System.out.println(Rvalue);
-
+//Again Storing into String and required BookingId
 		String RequiredString = String.valueOf(Rvalue);
-		String NewReqV1 = firstS.concat(RequiredString);
+		String NewReqV = firstS.concat(RequiredString);
+		System.out.println("********* " + NewReqV + " **********");
 
 		System.gc();
 		Runtime.getRuntime().gc();
+		return NewReqV.toString();
 
-		return NewReqV1.toString();
 	}
 
 }

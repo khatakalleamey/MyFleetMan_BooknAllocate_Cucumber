@@ -10,7 +10,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.sun.tools.internal.xjc.Driver;
 
@@ -417,15 +419,16 @@ public class BookingDetails {
 	}
 
 	// Methods-Allocation
-	public void setChooseAllcationType(String AllocationType) {
-		boolean isVendorSelected = chooseradioA_V.isSelected();
-		System.out.println(isVendorSelected);
-		if (AllocationType == "Self" || isVendorSelected == false) {
-			System.out.println(AllocationType + "= Self ");
-		} else {
+	public void setChooseAllcationType(String AllocationTypeS, String AllocationTypeV, WebDriver driver) {
 
+		if (AllocationTypeV == "Vendor") {
 			chooseradioA_V.click();
-
+			WebDriverWait waitfortype = new WebDriverWait(driver, 5);
+			waitfortype.until(ExpectedConditions.elementToBeSelected(chooseradioA_V));
+			boolean isVendorSelected = chooseradioA_V.isSelected();
+			System.out.println(isVendorSelected);
+		} else {
+			System.out.println("No Selection perfomed for Allocation type ");
 		}
 	}
 
@@ -435,6 +438,7 @@ public class BookingDetails {
 	}
 
 	public void setDriverPre(String DriverPrefix) {
+		txtDriverPre.clear();
 		txtDriverPre.sendKeys(DriverPrefix);
 	}
 
@@ -461,6 +465,7 @@ public class BookingDetails {
 		if (alert3.contains("Allocation Done.")) {
 			bdr.switchTo().alert().accept();
 		}
+
 	}
 
 	public void ClickReturnDashboard() {
@@ -477,7 +482,7 @@ public class BookingDetails {
 				.collect(Collectors.toList());
 
 //		System.out.println(bookingIdList.get(4).toString());
-		String valueforVerifi = bnlogic.BookingValidationLogic();
+		String valueforVerifi = bnlogic.BookingValidationLogic(bookID);
 		System.out.println("The Value taken for verification is " + valueforVerifi);
 
 		for (Object bookFind : bookingIdList) {
